@@ -1,0 +1,8 @@
+[0mGET /api [33m404 [0m609.751 ms - 1793[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.075 ms - -[0m
+[0mGET /api2 [33m404 [0m28.053 ms - 1793[0m
+[0mGET /stylesheets/style.css [36m304 [0m8.618 ms - -[0m
+::1 - - [15/Jan/2019:20:42:16 +0000] "GET /api HTTP/1.1" 404 1793 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [15/Jan/2019:20:42:16 +0000] "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/api" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [15/Jan/2019:21:11:06 +0000] "GET /api/news2 HTTP/1.1" 404 1553 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [15/Jan/2019:21:11:06 +0000] "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/api/news2" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"

@@ -1,0 +1,8 @@
+
+.idea/inspectionProfiles/profiles_settings.xml
+*.xml
+.idea/omanko-es6.github.io.iml
+node_modules
+dist
+.idea/NodeJs.iml
+.idea/NodeJs.iml
