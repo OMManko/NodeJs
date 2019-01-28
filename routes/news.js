@@ -1,65 +1,27 @@
 var express = require('express');
 var router = express.Router();
+var news_controller = require('../controllers/news.controller');
+var passport = require('passport');
 
-module.exports = function(Collection) {
+
+module.exports = function() {
 
     // read many
-    router.get('/news', function(req, res) {
-        Collection.find(function(err, result) {
-            if (err)
-                res.send({'error':'An error has occurred'});
-
-            res.send(result);
-        });
-    });
-
+    router.get('/news', news_controller.readAllEntries);
 
     // read one
-    router.get('/news/:_id', function(req, res) {
-        Collection.findById(req.params, function(err, result) {
-            if (err)
-                res.send({'error':'An error has occurred'});
-
-            res.send(result);
-        });
-    });
-
+    router.get('/news/:_id', news_controller.readOneEntry);
 
     // create
-    router.post('/news', function(req, res) {
-        var newEntry = req.body;
-        Collection.create(newEntry, function(err, newEntry) {
-            if (err)
-                res.send({'error':'An error has occurred'});
-
-            res.send(newEntry);
-        });
-    });
-
+    router.post('/news', news_controller.createEntry);
 
     // update
-    router.put('/news/:_id', function(req, res) {
-        var changedEntry = req.body;
-        Collection.updateOne({ _id: req.params._id }, { $set: changedEntry }, function(err) {
-            if (err)
-                res.send({'error':'An error has occurred'});
-
-            res.send(changedEntry);
-        });
-    });
-
+    router.put('/news/:_id',  passport.authenticate('jwt', { session: false}), news_controller.updateEntry);
 
     // remove
-    router.delete('/news/:_id', function(req, res) {
-        var id = req.params._id;
-        Collection.deleteOne({ _id: id }, function(err) {
-            if (err)
-                res.send({'error':'An error has occurred'});
-
-            res.send('Note ' +  id + ' is deleted!');
-        });
-    });
+    router.delete('/news/:_id',  passport.authenticate('jwt', { session: false}), news_controller.deleteEntry);
 
     return router;
-
 };
+
+
